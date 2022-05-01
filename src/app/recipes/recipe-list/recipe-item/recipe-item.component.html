@@ -1,3 +1,21 @@
-<div class="container">
-    <h2>RECIPE ITEM</h2>
-</div>
+<a 
+            href="#" 
+            class="list-group-item clearfix">
+
+            <div class="float-start">
+                <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+                <p class="list-group-item-text">{{ recipe.description }}</p>
+            </div>
+            <span class="float-end">
+                <!-- Para img puedo usar String Binding:
+                        src="{{ recipe.imagePath }}"
+                    o Property Binding:
+                        [src]="recipe.imagePath"
+                -->
+                <img 
+                    [src]="recipe.imagePath"
+                    alt="{{ recipe.name }}" 
+                    class="img-fluid" 
+                    style="max-height: 70px">
+            </span>
+        </a>
