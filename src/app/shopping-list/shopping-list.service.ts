@@ -18,4 +18,12 @@ export class ShoppingListService {
         this.ingredients.push(ingredient);
         this.ingredientsChanged.emit(this.ingredients.slice());//Emitir una copia del array original cada vez que se realiza una modificación
     }
+
+    addIngredients(ingredients: Ingredient[]){
+        // for(let ingredient of ingredients){
+        //     this.onIngredientAdded(ingredient);
+        // }
+        this.ingredients.push(...ingredients);
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
 }
