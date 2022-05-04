@@ -20,7 +20,11 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredients = this.shoppingListService.getIngredients();
-    
+    //Se obtiene el array desde el servicio cada vez que se modifica
+    this.shoppingListService.ingredientsChanged
+    .subscribe((ingredients: Ingredient[]) => {
+      this.ingredients = ingredients;
+    });
   }
 
   // onIngredientAdded(ingredient: Ingredient){

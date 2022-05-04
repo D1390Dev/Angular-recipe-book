@@ -2,7 +2,8 @@ import { EventEmitter } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 
 export class ShoppingListService {
-    ingredientAdded = new EventEmitter<Ingredient>();
+    //Emitir una copia del array original cada vez que se realiza una modificación
+    ingredientsChanged = new EventEmitter<Ingredient[]>();
 
     private ingredients: Ingredient[] = [
         new Ingredient('Apples', 5),
@@ -15,5 +16,6 @@ export class ShoppingListService {
 
     onIngredientAdded(ingredient: Ingredient) {
         this.ingredients.push(ingredient);
+        this.ingredientsChanged.emit(this.ingredients.slice());//Emitir una copia del array original cada vez que se realiza una modificación
     }
 }
