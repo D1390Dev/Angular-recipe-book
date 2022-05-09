@@ -1,22 +1,20 @@
 <a 
-            href="#" 
-            class="list-group-item clearfix"
-            (click)="onSelected()">
+    style="cursor: pointer;"
+    [routerLink]="[index]"
+    routerLinkActive="active"
+    class="list-group-item clearfix"
+    >
 
-            <div class="float-start">
-                <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-                <p class="list-group-item-text">{{ recipe.description }}</p>
-            </div>
-            <span class="float-end">
-                <!-- Para img puedo usar String Binding:
+    <div class="float-start">
+        <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+        <p class="list-group-item-text">{{ recipe.description }}</p>
+    </div>
+    <span class="float-end">
+        <!-- Para img puedo usar String Binding:
                         src="{{ recipe.imagePath }}"
                     o Property Binding:
                         [src]="recipe.imagePath"
                 -->
-                <img 
-                    [src]="recipe.imagePath"
-                    alt="{{ recipe.name }}" 
-                    class="img-fluid" 
-                    style="max-height: 70px">
-            </span>
-        </a>
+        <img [src]="recipe.imagePath" alt="{{ recipe.name }}" class="img-fluid" style="max-height: 70px">
+    </span>
+</a>

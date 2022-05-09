@@ -33,6 +33,10 @@ export class RecipeService {
         return this.recipes.slice();//Devuelve una copia exacta por lo que no se puede acceder al dato original
     }
 
+    getRecipe(index: number){
+        return this.recipes[index];
+    }
+
     addIngredientsToShoppingList(ingredients: Ingredient[]){
         this.slService.addIngredients(ingredients);
     }
