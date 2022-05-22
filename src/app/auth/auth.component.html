@@ -1,0 +1,40 @@
+<div class="alert alert-danger" role="alert" *ngIf="error">
+    <p>{{ error }}</p>
+</div>
+<div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<form class="form-floating" #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+    <div class="form-floating mb-3">
+        <input 
+            type="email" 
+            class="form-control" 
+            id="floatingInput" 
+            placeholder="name@example.com"
+            ngModel
+            name="email"
+            required
+            email>
+        <label for="floatingInput">Email address</label>
+    </div>
+    <div class="form-floating">
+        <input 
+            type="password" 
+            class="form-control" 
+            id="floatingPassword" 
+            placeholder="Password"
+            ngModel
+            name="password"
+            required
+            minlength="6">
+        <label for="floatingPassword">Password</label>
+    </div>
+    <div class="my-2">
+        <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">
+            {{ isLoginMode ? 'Login' : 'Sign Up'}}
+        </button> |
+        <button type="button" class="btn btn-info" (click)="onSwitchMode()">
+            Switch to {{ isLoginMode ? 'Sign Up' : 'Login'}}
+        </button>
+    </div>
+</form>
